@@ -29,7 +29,9 @@ std::ostream& operator<< (std::ostream& o, CircularInt const& ci)
 }
 std::istream& operator>> (std::istream& o, CircularInt& ci)
 {
-    o >> ci.hour;
+    int ans;
+    o >> ans;
+    ci.hour = ci.range(ans);
     return o;
 }
 //Equals operator
