@@ -31,7 +31,7 @@ public:
   CircularInt operator*(const CircularInt other);
   friend CircularInt operator*(int a, const CircularInt& ci);
 
-
+  CircularInt& operator/=(int a);
   CircularInt& operator*=(int a);
   CircularInt& operator+=(int a);
   CircularInt& operator-=(int a);
@@ -41,4 +41,12 @@ public:
   CircularInt& operator--();
   friend std::ostream& operator<< (std::ostream& o, CircularInt const& ci);
   // friend std::ostream& operator>> (std::ostream& o, CircularInt const& ci);
+
+  bool operator==(int a);
+  bool operator==(const CircularInt& other);
+  friend bool operator==(int a, const CircularInt& ci);
+  bool operator!=(int a);
+  bool operator!=(const CircularInt& other);
+  friend bool operator!=(int a, const CircularInt& ci);
 };
+
