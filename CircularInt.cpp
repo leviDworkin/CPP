@@ -34,7 +34,7 @@ std::istream& operator>> (std::istream& o, CircularInt& ci)
 }
 //Equals operator
 CircularInt& CircularInt::operator=(int a){
-  hour = (a%modulo + modulo)%modulo;
+  hour = range(a);
   return *this;
 }
 //Plus operator
