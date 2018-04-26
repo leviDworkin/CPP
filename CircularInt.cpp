@@ -63,10 +63,11 @@ CircularInt CircularInt::operator-(int a){
   tmp.hour = range(ans);
   return tmp;
 }
-CircularInt& CircularInt::operator-(){
+CircularInt CircularInt::operator-(){
+  CircularInt tmp(min,max);
   int ans = -hour;
-  hour = range(ans);
-  return *this;
+  tmp.hour = range(ans);
+  return tmp;
 }
 CircularInt CircularInt::operator-(const CircularInt other){
   CircularInt tmp(min,max);
