@@ -24,7 +24,7 @@ public:
   friend CircularInt operator+(int a, const CircularInt& ci);
 
   CircularInt operator-(int a);
-  CircularInt& operator-();
+  CircularInt operator-();
   CircularInt operator-(const CircularInt other);
   friend CircularInt operator-(int a, const CircularInt& ci);
 
