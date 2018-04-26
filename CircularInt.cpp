@@ -13,6 +13,15 @@ CircularInt::CircularInt(const CircularInt& other){
   modulo=other.modulo;
 }
 CircularInt::~CircularInt(){};
+
+int CircularInt::range(int a){
+  int ans = (a%modulo + modulo)%modulo;
+  while(ans<min){
+    ans+=modulo;
+  }
+  if(ans==max){return ans%modulo;}
+  return ans;
+}
 //i/o stream operator
 std::ostream& operator<< (std::ostream& o, CircularInt const& ci)
 {
@@ -32,145 +41,145 @@ CircularInt& CircularInt::operator=(int a){
 CircularInt CircularInt::operator+(int a){
   CircularInt tmp(min,max);
   int ans = hour+a;
-  tmp.hour = (ans%modulo + modulo)%modulo;
+  tmp.hour = range(ans);
   return tmp;
 }
 CircularInt CircularInt::operator+(const CircularInt other){
   CircularInt tmp(min,max);
   int ans = hour+other.hour;
-  tmp.hour = (ans%modulo + modulo)%modulo;
+  tmp.hour = range(ans);
   return tmp;
 }
 CircularInt operator+(int a, const CircularInt& ci){
   CircularInt tmp = ci;
     int ans = a+ci.hour;
-    tmp.hour = (ans%tmp.modulo + tmp.modulo)%tmp.modulo;
+    tmp.hour = tmp.range(ans);
     return tmp;
 }
 //Minus operator
 CircularInt CircularInt::operator-(int a){
   CircularInt tmp(min,max);
   int ans = hour-a;
-  tmp.hour = (ans%modulo + modulo)%modulo;
+  tmp.hour = range(ans);
   return tmp;
 }
 CircularInt& CircularInt::operator-(){
   int ans = -hour;
-  hour = (ans%modulo + modulo)%modulo;
+  hour = range(ans);
   return *this;
 }
 CircularInt CircularInt::operator-(const CircularInt other){
   CircularInt tmp(min,max);
   int ans = hour-other.hour;
-  tmp.hour = (ans%modulo + modulo)%modulo;
+  tmp.hour = range(ans);
   return tmp;
 }
 CircularInt operator-(int a, const CircularInt& ci){
   CircularInt tmp = ci;
   int ans = a-ci.hour;
-  tmp.hour = (ans%tmp.modulo + tmp.modulo)%tmp.modulo;
+  tmp.hour = tmp.range(ans);
   return tmp;
 }
 //Division operator
 CircularInt CircularInt::operator/(int a){
   CircularInt tmp(min,max);
   int ans = hour/a;
-  tmp.hour = (ans%modulo + modulo)%modulo;
+  tmp.hour = range(ans);
   return tmp;
 }
 CircularInt CircularInt::operator/(const CircularInt other){
   CircularInt tmp(min,max);
   int ans = hour/other.hour;
-  tmp.hour = (ans%modulo + modulo)%modulo;
+  tmp.hour = range(ans);
   return tmp;
 }
 CircularInt operator/(int a, const CircularInt& ci){
   CircularInt tmp = ci;
   int ans = a/ci.hour;
-  tmp.hour = (ans%tmp.modulo + tmp.modulo)%tmp.modulo;
+  tmp.hour = tmp.range(ans);
   return tmp;
 }
 //Multiplication operator
 CircularInt CircularInt::operator*(int a){
   CircularInt tmp(min,max);
   int ans = hour*a;
-  tmp.hour = (ans%modulo + modulo)%modulo;
+  tmp.hour = range(ans);
   return tmp;
 }
 CircularInt CircularInt::operator*(const CircularInt other){
   CircularInt tmp(min,max);
   int ans = hour*other.hour;
-  tmp.hour = (ans%modulo + modulo)%modulo;
+  tmp.hour = range(ans);
   return tmp;
 }
 CircularInt operator*(int a, const CircularInt& ci){
   CircularInt tmp = ci;
   int ans = ci.hour*a;
-  tmp.hour = (ans%tmp.modulo + tmp.modulo)%tmp.modulo;
+  tmp.hour = tmp.range(ans);
   return tmp;
 }
 //Unary operator
 CircularInt& CircularInt::operator/=(int a){
   int ans = hour/a;
-  hour = (ans%modulo + modulo)%modulo;
+  hour = range(ans);
   return *this;
 }
 CircularInt& CircularInt::operator*=(int a){
   int ans = hour*a;
-  hour = (ans%modulo + modulo)%modulo;
+  hour = range(ans);
   return *this;
 }
 CircularInt& CircularInt::operator+=(int a){
   int ans = hour+a;
-  hour = (ans%modulo + modulo)%modulo;
+  hour = range(ans);
   return *this;
 }
 
 CircularInt& CircularInt::operator-=(int a){
   int ans = hour-a;
-  hour = (ans%modulo + modulo)%modulo;
+  hour = range(ans);
   return *this;
 }
 CircularInt& CircularInt::operator/=(const CircularInt& other){
   int ans = hour/other.hour;
-  hour = (ans%modulo + modulo)%modulo;
+  hour = range(ans);
   return *this;
 }
 CircularInt& CircularInt::operator*=(const CircularInt& other){
   int ans = hour*other.hour;
-  hour = (ans%modulo + modulo)%modulo;
+  hour = range(ans);
   return *this;
 }
 CircularInt& CircularInt::operator+=(const CircularInt& other){
   int ans = hour+other.hour;
-  hour = (ans%modulo + modulo)%modulo;
+  hour = range(ans);
   return *this;
 }
 
 CircularInt& CircularInt::operator-=(const CircularInt& other){
   int ans = hour-other.hour;
-  hour = (ans%modulo + modulo)%modulo;
+  hour = range(ans);
   return *this;
 }
 CircularInt& CircularInt::operator++(){
   int ans = hour + 1;
-  hour = (ans%modulo + modulo)%modulo;
+  hour = range(ans);
   return *this;
 }
 const CircularInt CircularInt::operator++(int){
     CircularInt cpy(*this);
     int ans = hour + 1;
-    hour = (ans%modulo + modulo)%modulo;
+    hour = range(ans);
     return cpy;
 }
 const CircularInt CircularInt::operator--(int){
   int ans = hour-1;
-  hour = (ans%modulo + modulo)%modulo;
+  hour = range(ans);
   return *this;
 }
 CircularInt& CircularInt::operator--(){
   int ans = hour - 1;
-  hour = (ans%modulo + modulo)%modulo;
+  hour = range(ans);
   return *this;
 }
 //Boolean operator
