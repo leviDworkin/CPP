@@ -13,6 +13,7 @@ public:
   ~CircularInt();
 
   //Methods
+  int range(int a);
   friend std::ostream& operator<< (std::ostream& o, CircularInt const& ci);
   friend std::istream& operator>> (std::istream& o, CircularInt& ci);
 
