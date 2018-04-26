@@ -86,21 +86,30 @@ CircularInt operator-(int a, const CircularInt& ci){
 //Division operator
 CircularInt CircularInt::operator/(int a){
   CircularInt tmp(min,max);
-  int ans = hour/a;
-  tmp.hour = range(ans);
-  return tmp;
+  if( hour%a == 0 ){
+    int ans = hour/a;
+    tmp.hour = range(ans);
+    return tmp;
+  }
+  throw std::invalid_argument( "There is no such a number\n" );
 }
 CircularInt CircularInt::operator/(const CircularInt other){
   CircularInt tmp(min,max);
-  int ans = hour/other.hour;
-  tmp.hour = range(ans);
-  return tmp;
+  if( hour%other.hour == 0 ){
+    int ans = hour/other.hour;
+    tmp.hour = range(ans);
+    return tmp;
+  }
+  throw std::invalid_argument( "There is no such a number\n" );
 }
 CircularInt operator/(int a, const CircularInt& ci){
   CircularInt tmp = ci;
-  int ans = a/ci.hour;
-  tmp.hour = tmp.range(ans);
-  return tmp;
+  if( a%ci.hour == 0 ){
+    int ans = a/ci.hour;
+    tmp.hour = tmp.range(ans);
+    return tmp;
+  }
+  throw std::invalid_argument( "There is no such a number\n" );
 }
 //Multiplication operator
 CircularInt CircularInt::operator*(int a){
@@ -123,9 +132,12 @@ CircularInt operator*(int a, const CircularInt& ci){
 }
 //Unary operator
 CircularInt& CircularInt::operator/=(int a){
-  int ans = hour/a;
-  hour = range(ans);
-  return *this;
+  if(hour%a == 0){
+    int ans = hour/a;
+    hour = range(ans);
+    return *this;
+  }
+  throw std::invalid_argument( "There is no such a number\n" );
 }
 CircularInt& CircularInt::operator*=(int a){
   int ans = hour*a;
