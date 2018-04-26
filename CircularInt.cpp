@@ -13,7 +13,6 @@ CircularInt::CircularInt(const CircularInt& other){
   modulo=other.modulo;
 }
 CircularInt::~CircularInt(){};
-
 //Plus operator
 CircularInt CircularInt::operator+(int a){
   CircularInt tmp(min,max);
@@ -33,7 +32,6 @@ CircularInt operator+(int a, const CircularInt& ci){
     tmp.hour = (ans%tmp.modulo + tmp.modulo)%tmp.modulo;
     return tmp;
 }
-
 //Minus operator
 CircularInt CircularInt::operator-(int a){
   CircularInt tmp(min,max);
@@ -58,7 +56,6 @@ CircularInt operator-(int a, const CircularInt& ci){
   tmp.hour = (ans%tmp.modulo + tmp.modulo)%tmp.modulo;
   return tmp;
 }
-
 //Division operator
 CircularInt CircularInt::operator/(int a){
   CircularInt tmp(min,max);
@@ -78,8 +75,7 @@ CircularInt operator/(int a, const CircularInt& ci){
   tmp.hour = (ans%tmp.modulo + tmp.modulo)%tmp.modulo;
   return tmp;
 }
-
-//Multiply operator
+//Multiplication operator
 CircularInt CircularInt::operator*(int a){
   CircularInt tmp(min,max);
   int ans = hour*a;
@@ -97,6 +93,12 @@ CircularInt operator*(int a, const CircularInt& ci){
   int ans = ci.hour*a;
   tmp.hour = (ans%tmp.modulo + tmp.modulo)%tmp.modulo;
   return tmp;
+}
+//Unary operator
+CircularInt& CircularInt::operator/=(int a){
+  int ans = hour/a;
+  hour = (ans%modulo + modulo)%modulo;
+  return *this;
 }
 CircularInt& CircularInt::operator*=(int a){
   int ans = hour*a;
@@ -135,8 +137,33 @@ CircularInt& CircularInt::operator--(){
   hour = (ans%modulo + modulo)%modulo;
   return *this;
 }
-//
+//ostream operator
 std::ostream& operator<< (std::ostream& o, CircularInt const& ci)
 {
   return o << ci.hour;
+}
+//Boolean operator
+bool CircularInt::operator==(int a){
+  if(hour==a){return true;}
+  return false;
+}
+bool CircularInt::operator==(const CircularInt& other){
+  if(hour == other.hour){return true;}
+    return false;
+}
+bool operator==(int a, const CircularInt& ci){
+  if(ci.hour==a){return true;}
+  return false;
+}
+bool CircularInt::operator!=(int a){
+  if(hour!=a){return true;}
+  return false;
+}
+bool CircularInt::operator!=(const CircularInt& other){
+  if(hour != other.hour){return true;}
+    return false;
+}
+bool operator!=(int a, const CircularInt& ci){
+  if(ci.hour!=a){return true;}
+  return false;
 }
