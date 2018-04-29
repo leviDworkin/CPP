@@ -84,15 +84,27 @@ CircularInt operator-(int a, const CircularInt& ci){
   return tmp;
 }
 //Division operator
-CircularInt CircularInt::operator/(int a){
-  CircularInt tmp(min,max);
-  if( hour%a == 0 ){
-    int ans = hour/a;
-    tmp.hour = range(ans);
-    return tmp;
-  }
-  throw std::invalid_argument( "There is no such a number\n" );
+CircularInt  CircularInt::operator/(int x){
+	CircularInt tmp = this*;
+	for(int i=min;i<=max;i++){
+		if(min*x==hour){
+			tmp.hour=i;
+			return tmp;
+		}
+		min+=1;
+	}
+	throw std::invalid_argument( "There is no such a number\n" );
 }
+//
+// CircularInt CircularInt::operator/(int a){
+//   CircularInt tmp(min,max);
+//   if( hour%a == 0 ){
+//     int ans = hour/a;
+//     tmp.hour = range(ans);
+//     return tmp;
+//   }
+//   throw std::invalid_argument( "There is no such a number\n" );
+// }
 CircularInt CircularInt::operator/(const CircularInt other){
   CircularInt tmp(min,max);
   if( hour%other.hour == 0 ){
