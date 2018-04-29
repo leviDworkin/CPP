@@ -85,7 +85,7 @@ CircularInt operator-(int a, const CircularInt& ci){
 }
 //Division operator
 CircularInt  CircularInt::operator/(int x){
-	CircularInt tmp = this*;
+	CircularInt tmp = *this;
 	for(int i=min;i<=max;i++){
 		if(min*x==hour){
 			tmp.hour=i;
