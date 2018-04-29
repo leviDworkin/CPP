@@ -163,22 +163,13 @@ CircularInt operator/(int a, const CircularInt& ci){
 }
 //Multiplication operator
 CircularInt CircularInt::operator*(int a){
-  CircularInt tmp(min,max);
-  int ans = hour*a;
-  tmp.hour = range(ans);
-  return tmp;
+  throw("multiplication 1\n");
 }
 CircularInt CircularInt::operator*(const CircularInt other){
-  CircularInt tmp(min,max);
-  int ans = hour*other.hour;
-  tmp.hour = range(ans);
-  return tmp;
+  throw("multiplication 2\n");
 }
 CircularInt operator*(int a, const CircularInt& ci){
-  CircularInt tmp = ci;
-  int ans = ci.hour*a;
-  tmp.hour = tmp.range(ans);
-  return tmp;
+  throw("multiplication 3\n");
 }
 //Xor operator
 CircularInt CircularInt::operator^(int a){
