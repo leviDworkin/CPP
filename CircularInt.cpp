@@ -280,14 +280,14 @@ CircularInt& CircularInt::operator|=(const CircularInt& other){
   hour = range(ans);
   return *this;
 }
-// CircularInt& CircularInt::operator*=(const CircularInt& other){
-//   int ans = hour*other.hour;
-//   hour = range(ans);
-//   return *this;
-// }
 CircularInt& CircularInt::operator*=(const CircularInt& other){
-  throw("multiplication 5\n");
+  int ans = hour*other.hour;
+  hour = range(ans);
+  return *this;
 }
+// CircularInt& CircularInt::operator*=(const CircularInt& other){
+//   throw("multiplication 5\n");
+// }
 CircularInt& CircularInt::operator+=(const CircularInt& other){
   int ans = hour+other.hour;
   hour = range(ans);
