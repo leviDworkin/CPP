@@ -156,7 +156,7 @@ CircularInt CircularInt::operator*(int a){
   tmp.hour = range(ans);
   return tmp;
 }
-CircularInt CircularInt::operator*(const CircularInt& other){
+CircularInt CircularInt::operator*(const CircularInt other){
   CircularInt tmp(min,max);
   int ans = hour*other.hour;
   tmp.hour = range(ans);
