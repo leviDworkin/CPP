@@ -149,7 +149,7 @@ CircularInt operator/(int a, const CircularInt& ci){
   }
   throw std::invalid_argument( "There is no such a number\n" );
 }
-Multiplication operator
+// Multiplication operator
 CircularInt CircularInt::operator*(int a){
   CircularInt tmp(min,max);
   int ans = hour*a;
