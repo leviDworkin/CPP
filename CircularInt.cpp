@@ -149,34 +149,34 @@ CircularInt operator/(int a, const CircularInt& ci){
   }
   throw std::invalid_argument( "There is no such a number\n" );
 }
-//Multiplication operator
-// CircularInt CircularInt::operator*(int a){
-//   CircularInt tmp(min,max);
-//   int ans = hour*a;
-//   tmp.hour = range(ans);
-//   return tmp;
-// }
-// CircularInt CircularInt::operator*(const CircularInt& other){
-//   CircularInt tmp(min,max);
-//   int ans = hour*other.hour;
-//   tmp.hour = range(ans);
-//   return tmp;
-// }
-// CircularInt operator*(int a, const CircularInt& ci){
-//   CircularInt tmp = ci;
-//   int ans = a*ci.hour;
-//   tmp.hour = tmp.range(ans);
-//   return tmp;
-// }
+Multiplication operator
 CircularInt CircularInt::operator*(int a){
-  throw("multiplication 1\n");
+  CircularInt tmp(min,max);
+  int ans = hour*a;
+  tmp.hour = range(ans);
+  return tmp;
 }
-CircularInt CircularInt::operator*(const CircularInt other){
-  throw("multiplication 2\n");
+CircularInt CircularInt::operator*(const CircularInt& other){
+  CircularInt tmp(min,max);
+  int ans = hour*other.hour;
+  tmp.hour = range(ans);
+  return tmp;
 }
 CircularInt operator*(int a, const CircularInt& ci){
-  throw("multiplication 3\n");
+  CircularInt tmp = ci;
+  int ans = a*ci.hour;
+  tmp.hour = tmp.range(ans);
+  return tmp;
 }
+// CircularInt CircularInt::operator*(int a){
+//   throw("multiplication 1\n");
+// }
+// CircularInt CircularInt::operator*(const CircularInt other){
+//   throw("multiplication 2\n");
+// }
+// CircularInt operator*(int a, const CircularInt& ci){
+//   throw("multiplication 3\n");
+// }
 //Xor operator
 CircularInt CircularInt::operator^(int a){
   CircularInt tmp(min,max);
@@ -234,14 +234,14 @@ CircularInt& CircularInt::operator|=(int a){
   hour = range(ans);
   return *this;
 }
-// CircularInt& CircularInt::operator*=(int a){
-//   int ans = hour*a;
-//   hour = range(ans);
-//   return *this;
-// }
 CircularInt& CircularInt::operator*=(int a){
-  throw("multiplication 4\n");
+  int ans = hour*a;
+  hour = range(ans);
+  return *this;
 }
+// CircularInt& CircularInt::operator*=(int a){
+//   throw("multiplication 4\n");
+// }
 CircularInt& CircularInt::operator+=(int a){
   int ans = hour+a;
   hour = range(ans);
