@@ -12,7 +12,6 @@ CircularInt::CircularInt(const CircularInt& other){
   hour=other.hour;
   modulo=other.modulo;
 }
-CircularInt::~CircularInt(){};
 
 int CircularInt::range(int a){
   int ans = (a%modulo + modulo)%modulo;
