@@ -10,7 +10,6 @@ public:
   //Constructor and Destructor
   CircularInt(int low, int high);
   CircularInt(const CircularInt& other);
-  ~CircularInt();
 
   //Methods
   int range(int a);
